@@ -8,6 +8,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import static utilities.Utility.setUtilityDriver;
+
 public class BaseTest {
 
     private WebDriver driver;
@@ -24,16 +26,17 @@ public class BaseTest {
 
     @BeforeMethod
     public void loadApplication(){
-
         driver.get(DEMO_URL);
         basePage = new BasePage();
-        homePage = new HomePage();
         basePage.setDriver(driver);
+        setUtilityDriver();
+        homePage = new HomePage();
     }
 
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
+
 
 }
