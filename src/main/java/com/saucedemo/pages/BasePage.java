@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class  BasePage {
-    public  static WebDriver driver;
+    public static WebDriver driver;
 
     public  void setDriver(WebDriver driver){
         BasePage.driver = driver;
@@ -22,5 +22,13 @@ public class  BasePage {
 
     protected void click(By locator){
         find(locator).click();
+    }
+
+    public  static void delay(int milliseconds){
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException exc){
+            exc.printStackTrace();
+        }
     }
 }
