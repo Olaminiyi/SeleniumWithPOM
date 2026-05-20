@@ -1,6 +1,6 @@
 package utilities;
 
-import com.saucedemo.pages.BasePage;
+import com.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,12 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class JavaScriptUtility {
+public class JavaScriptUtility extends Utility {
 
-    public static void scrollToElementJS(By locator){
+    public static void scrollAndClickJS(By locator){
 
         WebDriverWait wait =
-                new WebDriverWait(BasePage.driver, Duration.ofSeconds(10));
+                new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement element = wait.until(
                 ExpectedConditions.presenceOfElementLocated(locator)

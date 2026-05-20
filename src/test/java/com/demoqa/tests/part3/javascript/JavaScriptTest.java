@@ -12,7 +12,5 @@ public class JavaScriptTest extends BaseTest {
     @Test
     public void testScrollingToElement(){
         homePage.gotoForms();
-
-
     }
 }

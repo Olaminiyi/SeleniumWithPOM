@@ -1,13 +1,10 @@
 package com.demoqa.pages;
 
 import com.demoqa.pages.forms.FormsPage;
-import com.saucedemo.pages.BasePage;
+import com.base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-import static utilities.JavaScriptUtility.scrollToElementJS;
+import static utilities.JavaScriptUtility.scrollAndClickJS;
 
 public class HomePage extends BasePage {
 
@@ -15,7 +12,7 @@ public class HomePage extends BasePage {
 
 
     public FormsPage gotoForms() {
-        scrollToElementJS(formscard);
+        scrollAndClickJS(formscard);
        // click(formscard);
         return  new FormsPage();
     }
