@@ -20,4 +20,10 @@ public class webTablesPage extends ElementsPage {
     public void clickSubmitButton(){
         click(submitButton);
     }
+
+    public  String getTableAge(String email){
+        By tableAge = By.xpath("//table[contains(@class, '-striped')]//td[text()='"+ email +"']//preceding::td[1]");
+        return  find(tableAge).getText();
+    }
+
 }
