@@ -1,8 +1,6 @@
 package com.demoqa.pages.Widgets;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-
+import java.util.List;
 import static utilities.DropDownUtility.*;
 import static utilities.JavaScriptUtility.scrollAndClickJS;
 
@@ -26,4 +24,9 @@ public class SelectMenuPage extends WidgetsPage{
         scrollAndClickJS(standardMultiSelect);
         deselectByValue(standardMultiSelect, value);
     }
+
+    public List<String> getAllSelectedStandardMultiOptions(){
+        return getAllSelectedOptions(standardMultiSelect);
+    }
+
 }
