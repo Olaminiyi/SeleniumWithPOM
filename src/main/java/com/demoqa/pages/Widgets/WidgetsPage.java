@@ -8,10 +8,16 @@ import static utilities.JavaScriptUtility.scrollAndClickJS;
 public class WidgetsPage extends HomePage {
 
     private By selectMenuItem = By.xpath("//li[@id='item-8']//span[text()='Select Menu']");
+    private By datePickerMenuItem = By.xpath("//li[@id='item-2']/a[@class='router-link']/span[text()='Date Picker']");
 
     public SelectMenuPage clickSelectMenu(){
         scrollAndClickJS(selectMenuItem);
 
         return new SelectMenuPage();
+    }
+
+    public DatePickerMenuPage clickDatePicker() {
+        scrollAndClickJS(datePickerMenuItem);
+        return  new DatePickerMenuPage();
     }
 }
