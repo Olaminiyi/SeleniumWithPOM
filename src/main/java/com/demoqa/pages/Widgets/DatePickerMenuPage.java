@@ -3,6 +3,7 @@ package com.demoqa.pages.Widgets;
 import org.openqa.selenium.By;
 
 import static utilities.DropDownUtility.selectByVisibleText;
+import static utilities.JavaScriptUtility.scrollAndClickJS;
 
 public class DatePickerMenuPage extends WidgetsPage {
 
@@ -11,11 +12,11 @@ public class DatePickerMenuPage extends WidgetsPage {
     private By yearDropDown = By.cssSelector(".react-datepicker__year-select");
 
     private By dayValue(String day){
-        return By.xpath("div[contains(@class,'react-datepicker__day react-datepicker__day--')][text()='"+ day +"']");
+        return By.xpath("//div[contains(@class,'react-datepicker__day react-datepicker__day--')][text()='"+ day +"']");
     }
 
     public void clickDay(String day){
-        click(dayValue(day));
+        scrollAndClickJS(dayValue(day));
     }
 
     public boolean isDayinMonth(String day){
@@ -23,7 +24,7 @@ public class DatePickerMenuPage extends WidgetsPage {
     }
 
     public void clickSelectDate(){
-        click(selectDateField);
+        scrollAndClickJS(selectDateField);
     }
 
     public String getDate() {

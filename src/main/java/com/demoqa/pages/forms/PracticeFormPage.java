@@ -10,6 +10,7 @@ public class PracticeFormPage extends FormsPage {
     private By sportsHobbyCheckbox = By.id("hobbies-checkbox-1");
     private By readingHobbyCheckbox = By.id("hobbies-checkbox-2");
     private By musicHobbyCheckbox = By.id("hobbies-checkbox-3");
+    private  By submitButton = By.id("submit");
 
     public void clickFemaleRadioButton(){
         scrollAndClickJS(femaleRadioButton);
@@ -57,5 +58,9 @@ public class PracticeFormPage extends FormsPage {
         if(find(musicHobbyCheckbox).isSelected()){
             scrollAndClickJS(musicHobbyCheckbox);
         }
+    }
+
+    public  void clickSubmitButton(){
+        click(submitButton);
     }
 }
