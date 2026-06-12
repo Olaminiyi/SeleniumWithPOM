@@ -2,6 +2,8 @@ package com.demoqa.pages.alerts_frames_windows;
 
 import org.openqa.selenium.By;
 
+import static utilities.JavaScriptUtility.scrollAndClickJS;
+
 public class ModalDialogsPage extends Alerts_Frames_WindowsPage{
 
     private By smallModalButton = By.id("showSmallModal");
@@ -9,7 +11,7 @@ public class ModalDialogsPage extends Alerts_Frames_WindowsPage{
     private By closeButton = By.id("closeSmallModal");
 
     public void clickSmallModalButton(){
-        click(smallModalButton);
+        scrollAndClickJS(smallModalButton);
     }
 
     public String getSmallModalText(){
@@ -17,7 +19,7 @@ public class ModalDialogsPage extends Alerts_Frames_WindowsPage{
     }
 
     public  void clickCloseButton(){
-        click(closeButton);
+        scrollAndClickJS(closeButton);
     }
 
 }
