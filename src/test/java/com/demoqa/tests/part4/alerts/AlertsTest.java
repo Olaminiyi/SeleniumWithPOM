@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 
 import static utilities.SwitchToUtility.*;
 
+@Test
 public class AlertsTest extends BaseTest {
 
-    @Test
+
     public void testInformationAlerts(){
         String expectedAlertText = "You clicked a button";
         var alertsPage = homePage.goToAlertsFramesWindowsCard().clickAlerts();
@@ -16,5 +17,15 @@ public class AlertsTest extends BaseTest {
         Assert.assertEquals(getAlertText(), expectedAlertText,
                 "\n Actual & Expected Messages Do Not Match \n");
         acceptAlert(); // if you need to perform an action after the alert, make sure you accept the alert
+    }
+
+    public void testConfirmationAlert(){
+        var alertPage = homePage.goToAlertsFramesWindowsCard().clickAlerts();
+        alertPage.clickConfirmationAlertButton();
+        dismissAlert();
+        String actualConfirmationResult = alertPage.getConfirmationResult();
+        String expectedConfirmationResult = "You selected Cancel";
+        Assert.assertEquals(actualConfirmationResult, expectedConfirmationResult,
+                "\n You Did Not Select Cancel \n");
     }
 }
