@@ -6,7 +6,7 @@ import static utilities.SwitchToUtility.*;
 
 public class FramesPage extends Alerts_Frames_WindowsPage{
 
-    private By textInFrame = By.id("sampleHeading");
+    private By textInFrame = By.id("sampleHeading"); // the same id for the small frame
     private  String iFrameBigBox = "frame1";
     private By headerFramesText = By.xpath("//div[@id='framesWrapper']//h1[text()='Frames']");
 
@@ -19,6 +19,10 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
         switchToFrameString(iFrameBigBox);
     }
 
+    private void switchToSmallBox(){
+        switchToFrameIndex(1);
+    }
+
     public String getTextInBigFrame(){
         switchToBigBox();
         String bigFrameText = find(textInFrame).getText();
@@ -26,5 +30,13 @@ public class FramesPage extends Alerts_Frames_WindowsPage{
         //driver.switchTo().defaultContent(); // to switch out to the parent frames that contains the heading to be able to ge the heading
         switchToDefaultContent();
         return  bigFrameText;
+    }
+
+    public String getTextInSmallFrame(){
+        switchToSmallBox();
+        String smallFrameText = find(textInFrame).getText();
+        System.out.println("Small Frame Text: " + smallFrameText);
+        switchToDefaultContent();
+        return smallFrameText;
     }
 }
