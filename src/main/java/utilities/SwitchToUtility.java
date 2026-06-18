@@ -1,6 +1,7 @@
 package utilities;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SwitchToUtility extends Utility{
 
@@ -34,5 +35,10 @@ public class SwitchToUtility extends Utility{
 
     public static void switchToFrameIndex(int index) {
         switchTo().frame(index);
+    }
+
+    // if the ID or the name attribute is not present in the DOM, then we use switch to Frame with WebElement
+    public static void switchToFrameElement(WebElement element){
+        switchTo().frame(element);
     }
 }
