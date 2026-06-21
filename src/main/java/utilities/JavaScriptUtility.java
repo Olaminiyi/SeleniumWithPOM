@@ -37,5 +37,24 @@ public class JavaScriptUtility extends Utility {
         executor.executeScript("arguments[0].click();", element);
     }
 
+    public static void scrollToElementJS(By locator){
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement element = wait.until(
+                ExpectedConditions.presenceOfElementLocated(locator)
+        );
+
+        JavascriptExecutor js =
+                (JavascriptExecutor) BasePage.driver;
+
+        js.executeScript(
+                "arguments[0].scrollIntoView({block:'center'});",
+                element
+        );
+
+    }
+
 
 }
