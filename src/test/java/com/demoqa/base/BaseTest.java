@@ -12,36 +12,46 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import utilities.GetUtility;
+import utilities.SwitchToUtility;
+import utilities.Utility;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-
 import static com.base.BasePage.delay;
-import static utilities.Utility.setUtilityDriver;
+
 
 public class BaseTest {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     protected BasePage basePage;
     protected HomePage homePage;
+    protected Utility utility;
+    protected GetUtility getUtility;
+    protected SwitchToUtility switchToUtility;
     protected  String DEMO_URL = "https://demoqa.com/";
 
 
     @BeforeClass
-    public void SetUp(){
+    public void setUp(){
         driver =  new ChromeDriver();
         driver.manage().window().maximize();
+        utility = new Utility(driver);
+        getUtility = new GetUtility(driver);
+        switchToUtility = new SwitchToUtility(driver);
    //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @BeforeMethod
     public void loadApplication(){
+
         driver.get(DEMO_URL);
-        basePage = new BasePage();
+        basePage = new BasePage(driver);
         basePage.setDriver(driver);
-        setUtilityDriver();
-        homePage = new HomePage();
+        utility.setUtilityDriver(driver);
+        homePage = new HomePage(driver);
+
     }
 
     @AfterMethod

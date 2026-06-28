@@ -1,16 +1,22 @@
 package com.demoqa.pages.elements;
 
 import org.openqa.selenium.By;
-
-import static utilities.JavaScriptUtility.scrollAndClickJS;
+import org.openqa.selenium.WebDriver;
+import utilities.JavaScriptUtility;
 
 public class LinksPage extends  ElementsPage{
+
+
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
+    public LinksPage(WebDriver driver){
+        super(driver);
+    }
 
     private By badRequestLink = By.id("bad-request");
     private  By responseLink = By.id("linkResponse");
 
     public void clickBadRequestLink(){
-        scrollAndClickJS(badRequestLink);
+        javaScriptUtility.scrollAndClickJS(badRequestLink);
     }
 
     public String getResponse() {

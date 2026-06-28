@@ -1,6 +1,7 @@
 package utilities;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -9,31 +10,35 @@ import java.util.stream.Collectors;
 
 public class DropDownUtility extends Utility{
 
-    public static Select findDropDown(By locator){
+    public DropDownUtility(WebDriver driver){
+        super(driver);
+    }
+
+    public Select findDropDown(By locator){
         return new Select(driver.findElement(locator));
     }
 
-    public static void selectByVisibleText(By locator, String text) {
+    public void selectByVisibleText(By locator, String text) {
         findDropDown(locator).selectByContainsVisibleText(text);
     }
 
-    public static void selectByIndex(By locator, int index) {
+    public void selectByIndex(By locator, int index) {
         findDropDown(locator).selectByIndex(index);
     }
 
-    public static void selectByValue(By locator, String value) {
+    public void selectByValue(By locator, String value) {
         findDropDown(locator).selectByValue(value);
     }
 
-    public static void deselectByValue(By locator, String value) {
+    public void deselectByValue(By locator, String value) {
         findDropDown(locator).deselectByValue(value);
     }
 
-    public static void deselectByIndex(By locator, int index) {
+    public void deselectByIndex(By locator, int index) {
         findDropDown(locator).deselectByIndex(index);
     }
 
-    public static List<String> getAllSelectedOptions(By locator){
+    public List<String> getAllSelectedOptions(By locator){
         List<WebElement> allSelectionOptions =
                 findDropDown((locator)).getAllSelectedOptions();
         return allSelectionOptions.stream().

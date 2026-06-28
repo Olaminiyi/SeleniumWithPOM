@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class ModalTest extends BaseTest {
 
-    @Test
+    @Test(groups = "smoke")
     public  void testModalDialog(){
         var afwPage = homePage.goToAlertsFramesWindowsCard();
         var modalDialogsPage = afwPage.clickModalDialogs();

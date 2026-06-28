@@ -19,7 +19,7 @@ public class FramesTest extends BaseTest {
                 "\n Actual & Expected Header Text Do Not Match \n");
     }
 
-    @Test
+    @Test(groups ="smoke")
     public void testFramesSmallBox(){
         var framesPage = homePage.goToAlertsFramesWindowsCard().clickFrames();
         String actualSmallBoxText = framesPage.getTextInSmallFrame();

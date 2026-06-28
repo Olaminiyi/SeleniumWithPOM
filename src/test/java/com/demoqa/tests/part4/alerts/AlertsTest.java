@@ -4,8 +4,6 @@ import com.demoqa.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static utilities.SwitchToUtility.*;
-
 @Test
 public class AlertsTest extends BaseTest {
 
@@ -14,15 +12,15 @@ public class AlertsTest extends BaseTest {
         String expectedAlertText = "You clicked a button";
         var alertsPage = homePage.goToAlertsFramesWindowsCard().clickAlerts();
         alertsPage.clickInformationAlertButton();
-        Assert.assertEquals(getAlertText(), expectedAlertText,
+        Assert.assertEquals(switchToUtility.getAlertText(), expectedAlertText,
                 "\n Actual & Expected Messages Do Not Match \n");
-        acceptAlert(); // if you need to perform an action after the alert, make sure you accept the alert
+        switchToUtility.acceptAlert(); // if you need to perform an action after the alert, make sure you accept the alert
     }
 
     public void testConfirmationAlert(){
         var alertPage = homePage.goToAlertsFramesWindowsCard().clickAlerts();
         alertPage.clickConfirmationAlertButton();
-        dismissAlert();
+        switchToUtility.dismissAlert();
         String actualConfirmationResult = alertPage.getConfirmationResult();
         String expectedConfirmationResult = "You selected Cancel";
         Assert.assertEquals(actualConfirmationResult, expectedConfirmationResult,
@@ -34,8 +32,8 @@ public class AlertsTest extends BaseTest {
         String expectedResult = "You entered " + alertText;
         var alertPage = homePage.goToAlertsFramesWindowsCard().clickAlerts();
         alertPage.clickPromptAlertButton();
-        setAlertText(alertText);
-        acceptAlert();
+        switchToUtility.setAlertText(alertText);
+        switchToUtility.acceptAlert();
         String actualResult = alertPage.getPromptAlertResult();
         Assert.assertEquals(actualResult, expectedResult,
                 "\n Actual & Expected Result Do Not Match \n");

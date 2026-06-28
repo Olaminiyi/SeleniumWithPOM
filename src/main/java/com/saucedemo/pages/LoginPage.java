@@ -2,8 +2,13 @@ package com.saucedemo.pages;
 
 import com.base.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
+
+    public LoginPage(WebDriver driver){
+        super(driver);
+    }
 
     private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
@@ -19,7 +24,7 @@ public class LoginPage extends BasePage {
     }
     public ProductsPage clickLoginButton() {
         click(loginButton);
-        return  new ProductsPage();
+        return  new ProductsPage(driver);
     }
 
     public ProductsPage logIntoApplication(String username, String password){

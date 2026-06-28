@@ -1,32 +1,40 @@
 package com.demoqa.pages.Widgets;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import utilities.DropDownUtility;
+import utilities.JavaScriptUtility;
 import java.util.List;
-import static utilities.DropDownUtility.*;
-import static utilities.JavaScriptUtility.scrollAndClickJS;
+
 
 public class SelectMenuPage extends WidgetsPage{
 
+    public SelectMenuPage(WebDriver driver){
+        super(driver);
+    }
+
+    private DropDownUtility dropDownUtility = new DropDownUtility(driver);
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
     private By standardMultiSelect = By.id("cars");
 
     public void selectStandardMulti(String text){
-        scrollAndClickJS(standardMultiSelect);
+        javaScriptUtility.scrollAndClickJS(standardMultiSelect);
 //        Select select = new Select(find(standardMultiSelect));
 //        select.selectByContainsVisibleText(text);
-        selectByVisibleText(standardMultiSelect, text);
+        dropDownUtility.selectByVisibleText(standardMultiSelect, text);
     }
 
     public void selectStandardMulti(int text){
-        scrollAndClickJS(standardMultiSelect);
-        selectByIndex(standardMultiSelect, text);
+        javaScriptUtility.scrollAndClickJS(standardMultiSelect);
+        dropDownUtility.selectByIndex(standardMultiSelect, text);
     }
 
     public void deselectStandardMulti(String value){
-        scrollAndClickJS(standardMultiSelect);
-        deselectByValue(standardMultiSelect, value);
+        javaScriptUtility.scrollAndClickJS(standardMultiSelect);
+        dropDownUtility.deselectByValue(standardMultiSelect, value);
     }
 
     public List<String> getAllSelectedStandardMultiOptions(){
-        return getAllSelectedOptions(standardMultiSelect);
+        return dropDownUtility.getAllSelectedOptions(standardMultiSelect);
     }
 
 }

@@ -1,17 +1,21 @@
 package com.demoqa.pages.alerts_frames_windows;
 
 import org.openqa.selenium.By;
-
-import static utilities.JavaScriptUtility.scrollAndClickJS;
+import org.openqa.selenium.WebDriver;
+import utilities.JavaScriptUtility;
 
 public class ModalDialogsPage extends Alerts_Frames_WindowsPage{
 
+    public ModalDialogsPage(WebDriver driver){
+        super(driver);
+    }
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
     private By smallModalButton = By.id("showSmallModal");
     private By smallModalText = By.xpath("//div[contains(text(),'small modal')]");
     private By closeButton = By.id("closeSmallModal");
 
     public void clickSmallModalButton(){
-        scrollAndClickJS(smallModalButton);
+        javaScriptUtility.scrollAndClickJS(smallModalButton);
     }
 
     public String getSmallModalText(){
@@ -19,7 +23,7 @@ public class ModalDialogsPage extends Alerts_Frames_WindowsPage{
     }
 
     public  void clickCloseButton(){
-        scrollAndClickJS(closeButton);
+        javaScriptUtility.scrollAndClickJS(closeButton);
     }
 
 }

@@ -1,11 +1,16 @@
 package com.demoqa.pages.forms;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import utilities.JavaScriptUtility;
 
-import static utilities.JavaScriptUtility.scrollAndClickJS;
 
 public class PracticeFormPage extends FormsPage {
 
+    public PracticeFormPage(WebDriver driver){
+        super(driver);
+    }
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
     private By femaleRadioButton = By.id("gender-radio-2");
     private By sportsHobbyCheckbox = By.id("hobbies-checkbox-1");
     private By readingHobbyCheckbox = By.id("hobbies-checkbox-2");
@@ -13,7 +18,7 @@ public class PracticeFormPage extends FormsPage {
     private  By submitButton = By.id("submit");
 
     public void clickFemaleRadioButton(){
-        scrollAndClickJS(femaleRadioButton);
+         javaScriptUtility.scrollAndClickJS(femaleRadioButton);
     }
 
     public boolean isFemaleSelected(){
@@ -22,25 +27,25 @@ public class PracticeFormPage extends FormsPage {
 
     public void clickSportsCheckbox(){
         if(!find(sportsHobbyCheckbox).isSelected()){
-            scrollAndClickJS(sportsHobbyCheckbox);
+            javaScriptUtility.scrollAndClickJS(sportsHobbyCheckbox);
         }
     }
 
     public void clickReadingCheckbox(){
         if(!find(readingHobbyCheckbox).isSelected()){
-            scrollAndClickJS(readingHobbyCheckbox);
+            javaScriptUtility.scrollAndClickJS(readingHobbyCheckbox);
         }
     }
 
     public void clickMusicCheckbox(){
         if(!find(musicHobbyCheckbox).isSelected()){
-            scrollAndClickJS(musicHobbyCheckbox);
+            javaScriptUtility.scrollAndClickJS(musicHobbyCheckbox);
         }
     }
 
     public void unclickSportsCheckbox(){
         if(find(sportsHobbyCheckbox).isSelected()){
-            scrollAndClickJS(sportsHobbyCheckbox);
+            javaScriptUtility.scrollAndClickJS(sportsHobbyCheckbox);
         }
     }
 
@@ -50,13 +55,13 @@ public class PracticeFormPage extends FormsPage {
 
     public void unclickReadingCheckbox(){
         if(find(readingHobbyCheckbox).isSelected()){
-            scrollAndClickJS(readingHobbyCheckbox);
+           javaScriptUtility.scrollAndClickJS(readingHobbyCheckbox);
         }
     }
 
     public void unclickMusicCheckbox(){
         if(find(musicHobbyCheckbox).isSelected()){
-            scrollAndClickJS(musicHobbyCheckbox);
+            javaScriptUtility.scrollAndClickJS(musicHobbyCheckbox);
         }
     }
 

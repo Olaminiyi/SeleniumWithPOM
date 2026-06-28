@@ -5,44 +5,48 @@ import org.openqa.selenium.WebElement;
 
 public class SwitchToUtility extends Utility{
 
-    private static WebDriver.TargetLocator switchTo(){
+    public SwitchToUtility(WebDriver driver){
+        super(driver);
+    }
+
+    private WebDriver.TargetLocator switchTo(){
         return driver.switchTo();
     }
 
-    public  static String getAlertText(){
+    public String getAlertText(){
        return switchTo().alert().getText();
     }
 
-    public static void acceptAlert(){
+    public void acceptAlert(){
         switchTo().alert().accept();
     }
 
-    public static  void dismissAlert(){
+    public void dismissAlert(){
         switchTo().alert().dismiss();
     }
 
-    public static void setAlertText(String text){
+    public void setAlertText(String text){
         switchTo().alert().sendKeys(text);
     }
 
-    public static void switchToFrameString(String value){
+    public void switchToFrameString(String value){
         switchTo().frame(value);
     }
 
-    public static void switchToDefaultContent() {
+    public void switchToDefaultContent() {
         switchTo().defaultContent();
     }
 
-    public static void switchToFrameIndex(int index) {
+    public void switchToFrameIndex(int index) {
         switchTo().frame(index);
     }
 
     // if the ID or the name attribute is not present in the DOM, then we use switch to Frame with WebElement
-    public static void switchToFrameElement(WebElement element){
+    public void switchToFrameElement(WebElement element){
         switchTo().frame(element);
     }
 
-    public static void switchToWindow(String handle) {
+    public void switchToWindow(String handle) {
         switchTo().window(handle);
     }
 }

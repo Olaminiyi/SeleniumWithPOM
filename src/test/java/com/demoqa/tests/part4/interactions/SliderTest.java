@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class SliderTest extends BaseTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void testSliderResult(){
         int x = 180;
         int y = 0;

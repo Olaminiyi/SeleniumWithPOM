@@ -2,8 +2,13 @@ package com.demoqa.pages.elements;
 
 import com.demoqa.pages.HomePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class webTablesPage extends ElementsPage {
+
+    public webTablesPage(WebDriver driver){
+        super(driver);
+    }
 
     private By registrationAgefield = By.id("age");
     private By submitButton = By.id("submit");

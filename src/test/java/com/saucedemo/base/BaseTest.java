@@ -19,9 +19,9 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(url);
-        basePage = new BasePage();
+        basePage = new BasePage(driver);
         basePage.setDriver(driver);
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(driver);
     }
 
     @AfterClass

@@ -5,10 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class Utility {
 
-    public static WebDriver driver;
+    protected WebDriver driver;
 
-    public static void setUtilityDriver(){
-        driver = BasePage.driver;
+    public Utility(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void setUtilityDriver(WebDriver driver){
+        this.driver = driver;
 
     }
 }

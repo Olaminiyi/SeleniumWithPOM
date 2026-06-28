@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class KeyboardTest extends BaseTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void testApplicationUsingKeyboard(){
         var textBoxPage = homePage.goToElements().clickTextBox();
         textBoxPage.setFullName("Neyo Be");

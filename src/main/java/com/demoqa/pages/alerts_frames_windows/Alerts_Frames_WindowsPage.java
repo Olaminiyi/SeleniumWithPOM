@@ -2,8 +2,9 @@ package com.demoqa.pages.alerts_frames_windows;
 
 import com.demoqa.pages.HomePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import utilities.JavaScriptUtility;
 
-import static utilities.JavaScriptUtility.scrollAndClickJS;
 
 public class Alerts_Frames_WindowsPage extends HomePage {
 
@@ -11,25 +12,30 @@ public class Alerts_Frames_WindowsPage extends HomePage {
     private  By alertsMenuItem = By.xpath("//li[@id='item-1']//span[text()='Alerts']");
     private  By framesMenuItem = By.xpath("//li[@id='item-2']//span[text()='Frames']");
     private By browserWindowsMenuItem = By.xpath("//li[@id='item-0']//span[text()='Browser Windows']");
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
+
+   public Alerts_Frames_WindowsPage(WebDriver driver){
+       super(driver);
+   }
 
     public BrowserWindowsPage clickBrowserWindows(){
-        scrollAndClickJS(browserWindowsMenuItem);
-        return new BrowserWindowsPage();
+        javaScriptUtility.scrollAndClickJS(browserWindowsMenuItem);
+        return new BrowserWindowsPage(driver);
     }
 
     public FramesPage clickFrames(){
-        scrollAndClickJS(framesMenuItem);
-        return new FramesPage();
+        javaScriptUtility.scrollAndClickJS(framesMenuItem);
+        return new FramesPage(driver);
     }
 
 
     public  AlertsPage clickAlerts(){
-        scrollAndClickJS(alertsMenuItem);
-        return new AlertsPage();
+        javaScriptUtility.scrollAndClickJS(alertsMenuItem);
+        return new AlertsPage(driver);
     }
 
     public ModalDialogsPage clickModalDialogs(){
-        scrollAndClickJS(modalDialogsMenuItem);
-        return new ModalDialogsPage();
+        javaScriptUtility.scrollAndClickJS(modalDialogsMenuItem);
+        return new ModalDialogsPage(driver);
     }
 }

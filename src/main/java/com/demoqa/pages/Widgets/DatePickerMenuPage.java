@@ -1,11 +1,18 @@
 package com.demoqa.pages.Widgets;
 
 import org.openqa.selenium.By;
-
-import static utilities.DropDownUtility.selectByVisibleText;
-import static utilities.JavaScriptUtility.scrollAndClickJS;
+import org.openqa.selenium.WebDriver;
+import utilities.DropDownUtility;
+import utilities.JavaScriptUtility;
 
 public class DatePickerMenuPage extends WidgetsPage {
+
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
+    private DropDownUtility dropDownUtility = new DropDownUtility(driver);
+
+    public DatePickerMenuPage(WebDriver driver){
+        super(driver);
+    }
 
     private By selectDateField = By.id("datePickerMonthYearInput");
     private  By monthDropDown = By.className("react-datepicker__month-select");
@@ -16,7 +23,7 @@ public class DatePickerMenuPage extends WidgetsPage {
     }
 
     public void clickDay(String day){
-        scrollAndClickJS(dayValue(day));
+        javaScriptUtility.scrollAndClickJS(dayValue(day));
     }
 
     public boolean isDayinMonth(String day){
@@ -24,7 +31,7 @@ public class DatePickerMenuPage extends WidgetsPage {
     }
 
     public void clickSelectDate(){
-        scrollAndClickJS(selectDateField);
+        javaScriptUtility.scrollAndClickJS(selectDateField);
     }
 
     public String getDate() {
@@ -32,11 +39,11 @@ public class DatePickerMenuPage extends WidgetsPage {
     }
 
     public void selectMonth(String month){
-        selectByVisibleText(monthDropDown, month);
+       dropDownUtility.selectByVisibleText(monthDropDown, month);
     }
 
     public void selectYear(String year){
-        selectByVisibleText(yearDropDown, year);
+      dropDownUtility.selectByVisibleText(yearDropDown, year);
     }
 
 }

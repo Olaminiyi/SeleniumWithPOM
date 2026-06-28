@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.List;
 import java.util.stream.Collectors;
-import static utilities.DropDownUtility.findDropDown;
 
 public class SelectDropDownTests extends BaseTest {
 

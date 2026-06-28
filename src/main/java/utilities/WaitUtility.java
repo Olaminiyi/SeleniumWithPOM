@@ -12,12 +12,16 @@ import java.time.Duration;
 
 public class WaitUtility extends Utility{
 
-    public static void explicitWaitUntilVisible(int seconds, By locator){
+    public WaitUtility(WebDriver driver){
+        super(driver);
+    }
+
+    public void explicitWaitUntilVisible(int seconds, By locator){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public static void fluentWaitUntilVisible(int seconds, By locator){
+    public void fluentWaitUntilVisible(int seconds, By locator){
         FluentWait fluentWait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(seconds))
                 .pollingEvery(Duration.ofSeconds(seconds))

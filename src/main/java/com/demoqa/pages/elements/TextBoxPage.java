@@ -2,15 +2,24 @@ package com.demoqa.pages.elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import utilities.ActionsUtility;
+import utilities.GetUtility;
+import utilities.JavaScriptUtility;
+import utilities.WaitUtility;
 
-import static utilities.ActionsUtility.sendKeys;
-import static utilities.GetUtility.getText;
-import static utilities.JavaScriptUtility.scrollAndClickJS;
-import static utilities.JavaScriptUtility.scrollToElementJS;
-import static utilities.WaitUtility.explicitWaitUntilVisible;
 
 public class TextBoxPage extends ElementsPage{
+
+    private JavaScriptUtility javaScriptUtility = new JavaScriptUtility(driver);
+    private GetUtility getUtility = new GetUtility(driver);
+    private ActionsUtility actionsUtility = new ActionsUtility(driver);
+    private WaitUtility waitUtility = new WaitUtility(driver);
+
+    public TextBoxPage(WebDriver driver){
+        super(driver);
+    }
 
     private By fullNameField = By.id("userName");
     private By currentAddressField = By.xpath("//textarea[@id='currentAddress'] ");
@@ -18,12 +27,12 @@ public class TextBoxPage extends ElementsPage{
     private By currentAddressResult = By.xpath("//p[@id='currentAddress']");
 
     public String getCurrentAddress(){
-        explicitWaitUntilVisible(5, currentAddressResult);
-        return getText(currentAddressResult);
+        waitUtility.explicitWaitUntilVisible(5, currentAddressResult);
+        return getUtility.getText(currentAddressResult);
     }
 
     public void clickSubmitButton(){
-        scrollAndClickJS(submitButton);
+        javaScriptUtility.scrollAndClickJS(submitButton);
     }
 
     // testing using enter to enter multiple line of words
@@ -33,8 +42,8 @@ public class TextBoxPage extends ElementsPage{
 
     // testing using TABS to go the next field instead of using locator
     public void setFullName(String name){
-        scrollToElementJS(fullNameField);
-        sendKeys(find(fullNameField), Keys.chord(name));
+        javaScriptUtility.scrollToElementJS(fullNameField);
+        actionsUtility.sendKeys(find(fullNameField), Keys.chord(name));
     }
 
     public void setEmail(String email){
