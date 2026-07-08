@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Debug Suite">
+    <test name="Frames Only">
+
+        <classes>
+            <class name="com.demoqa.tests.part4.frames.FramesTest"/>
+            <class name="com.demoqa.tests.part4.alerts.AlertsTest"/>
+            <class name="com.demoqa.tests.part4.dynamic_wait.DynamicWaitTest"/>
+            <class name="com.demoqa.tests.part4.modals.ModalTest"/>
+        </classes>
+    </test>
+</suite>

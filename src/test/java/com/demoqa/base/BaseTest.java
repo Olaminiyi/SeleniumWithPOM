@@ -33,28 +33,29 @@ public class BaseTest {
     protected  String DEMO_URL = "https://demoqa.com/";
 
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setUp(){
+        System.out.println("BeforeClass");
         driver =  new ChromeDriver();
         driver.manage().window().maximize();
-        utility = new Utility(driver);
-        getUtility = new GetUtility(driver);
-        switchToUtility = new SwitchToUtility(driver);
+
    //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void loadApplication(){
-
+        System.out.println("========== Before Method Running ==========");
         driver.get(DEMO_URL);
         basePage = new BasePage(driver);
         basePage.setDriver(driver);
-        utility.setUtilityDriver(driver);
         homePage = new HomePage(driver);
+        utility = new Utility(driver);
+        getUtility = new GetUtility(driver);
+        switchToUtility = new SwitchToUtility(driver);
 
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void takeFailedResultScreenshot(ITestResult testResult){
         if (ITestResult.FAILURE == testResult.getStatus()){
            TakesScreenshot screenshot  = (TakesScreenshot) driver;
@@ -75,7 +76,7 @@ public class BaseTest {
         }
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown(){
         delay(3000);
         driver.quit();

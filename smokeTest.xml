@@ -2,9 +2,18 @@
 
 <suite name="Smoke Suite">
     <test name="All Test">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
 
         <packages>
             <package name="com.demoqa.tests.part4.frames"/>
+            <package name="com.demoqa.tests.part4.modals"/>
+            <package name="com.demoqa.tests.part4.alerts"/>
+            <package name="com.demoqa.tests.part4.dynamic_wait"/>
+
         </packages>
     </test>
 </suite>

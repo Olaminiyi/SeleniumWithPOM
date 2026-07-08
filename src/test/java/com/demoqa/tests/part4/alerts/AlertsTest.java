@@ -4,9 +4,8 @@ import com.demoqa.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
+@Test (groups ="smoke")
 public class AlertsTest extends BaseTest {
-
 
     public void testInformationAlerts(){
         String expectedAlertText = "You clicked a button";
